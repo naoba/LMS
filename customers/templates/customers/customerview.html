@@ -1,0 +1,84 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block content %}
+<div class="flex">
+    <div class="row">
+        <div class="alert alert-primary text-center"> Patient ID: {{customer.id}}</div>
+
+        <div class="ccol-lg-4 col-md-4 col-sm-4">
+            <!-- customer photo  -->
+            <div class="text-center">
+                {% if customer.photo|length != 0 %}
+                    <img src=" /{{customer.photo}}" class="img-thumbnail-sm" alt="{{customer}}">
+                {% else %}
+                    <img src="{% static 'image/default.jpg'%}" class="img-thumbnail-sm" alt="{{customer}}">
+                {% endif %}
+            </div>
+            <!-- End customer photo  -->  
+             <!-- Customer Doc  -->
+             <div class="text-center">
+                {% if customer.doc_upload|length != 0 %}
+                    <img src=" /{{customer.doc_upload}}" class="img-thumbnail-sm" alt="{{customer}}">
+                {% else %}
+                    <img src="{% static 'image/default.jpg'%}" class="img-thumbnail-sm" alt="{{customer}}">
+                {% endif %}
+            </div>
+            <!-- End Customer Doc -->
+            
+              
+        </div>
+        <div class="ccol-lg-8 col-md-8 col-sm-8">
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Full Name</td>
+                    <td>{{customer |upper }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth[ Age ] </td>
+                    <td>{{customer.dob }} [ {{ customer.age }} years ]</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>{{customer.gender}}</td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>{{customer.mobile }}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>{{customer.Phone}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{customer.email}}</td>
+                </tr>
+                <tr>
+                    <td>Adress</td>
+                    <td>{{customer.adress}}</td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td>{{customer.state}}</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>{{customer.country}}</td>
+                </tr>
+                <tr>
+                    <td>Pin Code</td>
+                    <td>{{customer.pincode}}</td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock%}

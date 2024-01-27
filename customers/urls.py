@@ -18,5 +18,6 @@ from customers import views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.CustomerLists, name='CustomerLists'),
+    path('', views.CustomerLists, name='customerLists'),
+    path('customer/<int:pk>/',views.CustomerView, name='customerview'),
 ]

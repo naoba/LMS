@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+<!-- for loop: for new_name in incoming_parameter -->
+
+{% block content %}
+
+
+<div class="flex">
+   <div class="row ">
+      <div class="col-lg-12">
+      <table class="table table-hover">
+         <thead>
+           <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Photo</th>
+             <th scope="col">Name</th>
+             <th scope="col">Age</th>
+             <th scope="col">Gender</th>
+             <th scope="col">Mobile</th>
+             <th scope="col">Adress</th>
+             <th scope="col">EDIT</th>  
+           </tr>
+         </thead>
+         <tbody>
+          {% for customer in customers %}
+           <tr>
+             
+               <td class="h6" scope="row">{{customer.id}}</td>
+               <td class="h6" scope="col">Photo</td>
+               <td class="h6" scope="col">{{customer}}</td>
+               <td class="h6" scope="col">{{customer.age}}</td>
+               <td class="h6" scope="col">{{customer.gender}}</td>
+               <td class="h6" scope="col">{{customer.mobile}}</td>
+               <td class="h6" scope="col">{{customer.address}}</td>
+               <td class="h6" scope="col">
+                <a href="{{customer.get_absolute_url}}">
+                  View
+                 </a>
+               </td> 
+           </tr>
+          {% endfor %}
+
+         </tbody>
+       </table>
+       <div class="pagination">
+        <span class="step-links">
+            {% if customers.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ customers.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ customers.number }} of {{ customers.paginator.num_pages }}.
+            </span>
+    
+            {% if customers.has_next %}
+                <a href="?page={{ customers.next_page_number }}">next</a>
+                <a href="?page={{ customers.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+        
+    </div>
+      </div>
+   </div>
+</div>
+
+
+
+{% endblock%}
