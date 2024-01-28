@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Customer
 from django.core.paginator import Paginator
+from .forms import CustomerForm
 
 # Create your views here.
 
@@ -21,4 +22,16 @@ def CustomerView(request, pk):
 
     context = {'customer':customer}  
     return render(request, 'customers/customerview.html', context)
+
+def CustomerCreate(request):
+
+    if request.method == "POST":
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.save()
+            return redirect('item_detail', pk=item.pk)
+    else:
+        form = CustomerForm()
+    return render(request, 'customers/customercreate.html', {'form': form})
 

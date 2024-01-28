@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<form action="" method="post">
+  <div class="row mt-3">
+      <div class="col-lg-3 col-md-3 col-sm-3"></div>
+      <!-- Customer Detail -->
+      <form action="" method="post">
+      <div class="col-lg-6 col-md-6 col-sm-6">    
+        <div class="row form-group align-items-start mb-3">
+            <div class="col-3">
+                  {% render_field form.title|add_class:"form-control" placeholder=form.title.label %}
+            </div>
+            <div class="col-9">
+                  {% render_field form.full_name|add_class:"form-control" placeholder=form.full_name.label %}
+            </div>
+        </div>
+
+        <div class="row align-items-start mb-3">
+          <div class="col-6">
+                  <label >{% render_field form.gender.label%}</label>
+                  {% render_field form.gender|add_class:"form-control"  %}
+          </div>
+          <div class="col-6">
+                  <label >{% render_field form.dob.label%}</label>
+                  {% render_field form.dob type="date"  class="form-control" placeholder=form.dob.label %}
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          {% render_field form.age class="form-control" placeholder="Age in Years only OtherWise Select Date of Birth" type="text" %}
+        </div>
+
+        <div class="row align-items-start mb-3">
+          <div class="col-6">
+                  {% render_field form.mobile|add_class:"form-control" placeholder=form.mobile.label %}
+          </div>
+          <div class="col-6">
+                  {% render_field form.phone|add_class:"form-control" placeholder=form.phone.label %}
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+                {% render_field form.adress class="form-control" placeholder="Full Adress" type="text" %}
+        </div>
+        <div class="form-group mb-3">
+                {% render_field form.state class="form-control" placeholder="State" type="text" %}
+        </div>
+        <div class="form-group mb-3">
+                {% render_field form.country class="form-control" placeholder="Country" type="text" %}
+        </div>
+        <div class="form-group mb-3">
+                {% render_field form.pincode class="form-control" placeholder="Pin Code" type="text" %}
+        </div>       
+      </div>
+      <!-- End Customer detail -->
+      <!-- Customer upload  -->
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="form-group mb-3">
+          <span>
+            <label >{% render_field form.photo.label%}</label>
+            {% render_field form.photo class="form-control" placeholder="Photo" type="file" %}
+          </span>
+          
+        </div>
+        <div class="form-group mb-3">
+          <span>
+            <label >{% render_field form.doc_upload.label%}</label>
+            {% render_field form.doc_upload class="form-control" placeholder="doc upload" type="file" %}
+          </span>
+        </div>
+      </div>
+      <!-- End Customer Upload -->
+  </div>
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button class="btn btn-primary" type="button">Create</button>
+  </div>
+</form>
+        
+  <a href="/">Back to list</a>
+{% endblock %}
