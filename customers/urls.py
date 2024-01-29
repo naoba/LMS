@@ -21,4 +21,5 @@ urlpatterns = [
     path('', views.CustomerLists, name='customerlists'),
     path('create', views.CustomerCreate, name='customercreate'),
     path('customer/<int:pk>/',views.CustomerView, name='customerview'),
+    path('customer/<int:pk>/edit',views.CustomerEdit, name='customeredit'),
 ]

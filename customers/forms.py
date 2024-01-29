@@ -7,15 +7,15 @@ from django.utils import timezone
 
 class CustomerForm(ModelForm):
 
-    age = forms.CharField(max_length=10)
-  
+    
     class Meta:
         model = Customer
-        # fields = ['title','full_name', 'dob', 'gender', 'mobile', 'phone', 'email', 'adress', 'state', 'country', 'pincode', 'photo', 'doc_upload', 'age']
+        # fields = ['title','full_name', 'dob', 'gender', 'mobile', 'phone', 'email', 'adress', 'state', 'country', 'pincode', 'photo', 'doc_upload']
         fields = "__all__"
         widgets = {
             # 'dob': DateField(widget=forms.DateInput(format='%d/%m/%Y', attrs={'class': 'datepicker'}), input_formats=('%d/%m/%Y', ))
-            'dob':forms.DateInput(attrs={'value':timezone.now().date()})
+            'dob':forms.DateInput(attrs={'value':timezone.now().date(), 'onchange': "DOBtoAge()"}),
+            
         }
         labels = {
             "title": _("Title"),
