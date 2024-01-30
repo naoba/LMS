@@ -1,43 +1,45 @@
 {% extends 'base.html'%}
+{% load static %}
 <!-- for loop: for new_name in incoming_parameter -->
 
 {% block content %}
 
 
 <div class="flex">
-   <div class="row ">
+   <div class="row m-2">
+    
     <span><a href="{% url 'customercreate'%}"> New Patient</a></span>
-      <div class="col-lg-12">
+      <div class="col-lg-12 col-md-12 col-sm-12" style="overflow: scroll;">
       <table class="table table-hover">
          <thead>
            <tr>
              <th scope="col">ID</th>
              <th scope="col">Photo</th>
-             <th scope="col">Name</th>
+             <th scope="col-2">Name</th>
              <th scope="col">Age</th>
              <th scope="col">Gender</th>
              <th scope="col">Mobile</th>
-             <th scope="col">Adress</th>
+             <th scope="col-2">Adress</th>
              <th scope="col">Action</th>  
            </tr>
          </thead>
          <tbody>
           {% for customer in customers %}
-           <tr>
+           <tr class="font-small">
              
-               <td class="h6" scope="row">{{customer.id}}</td>
-               <td class="h6" scope="col">Photo</td>
-               <td class="h6" scope="col">{{customer}}</td>
-               <td class="h6" scope="col">{{customer.age}}</td>
-               <td class="h6" scope="col">{{customer.gender}}</td>
-               <td class="h6" scope="col">{{customer.mobile}}</td>
-               <td class="h6" scope="col">{{customer.address}}</td>
-               <td class="h6" scope="col">
-                <a href="{{customer.get_absolute_url}}">
-                  View
+               <td>{{customer.id}}</td>
+               <td><img class="img-xsm" src="/{{customer.photo}}" alt=""></td>
+               <td>{{customer}}</td>
+               <td>{{customer.age}}</td>
+               <td>{{customer.gender}}</td>
+               <td>{{customer.mobile}}</td>
+               <td>{{customer.adress}}</td>
+               <td>
+                <a href="{{customer.get_absolute_url}}" title="View">
+                  <img src="{% static 'icons/card-heading.svg'%}" alt="View" >
                  </a>
-                 <a href="{% url 'customeredit' pk=customer.id %}">
-                  Update
+                 <a href="{% url 'customeredit' pk=customer.id %}" title="Update">
+                  <img src="{% static 'icons/pencil-square.svg' %}" alt="Update" ...>
                  </a>
                </td> 
            </tr>

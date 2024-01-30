@@ -46,6 +46,9 @@
                 {% render_field form.phone|add_class:"form-control" placeholder=form.phone.label %}
         </div>
       </div>
+      <div class="form-group mb-3">
+        {% render_field form.email class="form-control" placeholder="Email Adress" type="text" %}
+</div>
 
       <div class="form-group mb-3">
               {% render_field form.adress class="form-control" placeholder="Full Adress" type="text" required="True" %}
