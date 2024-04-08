@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from datetime import datetime
+from general.models import Gender, Designation
 
 class Customer(models.Model):
     GENDER = {
@@ -13,10 +14,10 @@ class Customer(models.Model):
     ## NOTE null = True : Emtry database, blank = True : Emtry from
     ## auto_now_add: one time when first create, auto_now: every time to save
 
-    title = models.CharField(blank=True,max_length=10)
+    title =models.ForeignKey(Designation,on_delete=models.SET_NULL,blank=True,null=True,)
     full_name = models.CharField(max_length=100)
     dob = models.DateField()
-    gender = models.CharField(max_length=1, choices=GENDER)
+    gender = models.ForeignKey(Gender,on_delete=models.SET_NULL,blank=True,null=True,)
     mobile = models.IntegerField(null = True, blank=True,)
     phone = models.IntegerField(blank=True, null = True)
     email = models.EmailField(blank=True, null = True)

@@ -1,0 +1,80 @@
+{% extends 'base.html'%}
+{% load widget_tweaks %}
+{% block content%}
+   <div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label class="form-label">{{ form.refname.label }}</label>
+                {% render_field form.refname class="form-control" placeholder=form.refname.label %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label class="form-label">{{ form.display.label }}</label>
+                {% render_field form.display class="form-control" placeholder=form.display.label %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">{{ form.refregister.label }}</label>
+                {% render_field form.refregister class="form-control" placeholder=form.refregister.label %}
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ form.refspeciality.label }}</label>
+                {% render_field form.refspeciality class="form-control" placeholder=form.refspeciality.label %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">{{ form.refmobile.label }}</label>
+                {% render_field form.refmobile class="form-control" placeholder=form.refmobile.label %}
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ form.refphone.label }}</label>
+                {% render_field form.refphone class="form-control" placeholder=form.refphone.label %}
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ form.refemail.label }}</label>
+                {% render_field form.refemail class="form-control" placeholder=form.refemail.label %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label class="form-label">{{ form.refaddress.label }}</label>
+                {% render_field form.refaddress class="form-control" placeholder=form.refaddress.label %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">{{ form.refstate.label }}</label>
+                {% render_field form.refstate class="form-control" placeholder=form.refstate.label %}
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ form.refcountry.label }}</label>
+                {% render_field form.refcountry class="form-control" placeholder=form.refcountry.label %}
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ form.refpincode.label }}</label>
+                {% render_field form.refpincode class="form-control" placeholder=form.refpincode.label %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">{{ form.refpricelist.label }}</label>
+                {% render_field form.refpricelist class="form-control" placeholder=form.refpricelist.label %}
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ form.refreport.label }}</label>
+                <div class="form-check form-switch">
+                    {% render_field form.refreport class="form-check-input" type="checkbox" %}
+                    <label class="form-check-label">Send Report CheckBox</label>
+                  </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

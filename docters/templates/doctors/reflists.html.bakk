@@ -1,0 +1,134 @@
+{% extends 'base.html'%}
+{% load static %}
+<!-- for loop: for new_name in incoming_parameter -->
+{% block content %}
+
+
+<div class="flex m-1">
+
+  <div class="row bg-info">
+    <div class="col-md-3 col-sm-3 border border-dark">
+      <p class="fs-5 fw-bold text-capitalize text-center m-0">
+        Referal Name
+        <a href=""> 
+        <img src="{% static 'icons/sort-alpha-down.svg'%}" alt="View" >
+        </a>
+      </p>
+    </div>
+    <div class="col-md-1 col-sm-1 border border-dark">
+      <p class="fs-5 fw-bold text-capitalize text-center m-0">
+        Mobile
+      </p>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <div class="row">
+        <div class="col-md-3 border border-dark">
+          <p class="fs-5 fw-bold text-capitalize text-center m-0">
+            Email
+          </p>
+        </div>
+        <div class="col-md-6 border border-dark">
+          <p class="fs-5 fw-bold text-capitalize text-center m-0">
+            Adress
+          </p>
+        </div>
+        <div class="col-md-3 border border-dark">
+          <p class="fs-5 fw-bold text-capitalize text-center m-0">
+            Price List
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-3">
+      <div class="row">
+        <div class="col-md-4 border border-dark">
+          <p class="fs-5 fw-bold text-capitalize text-center m-0">
+            Regn
+          </p>
+        </div>
+        <div class="col-md-5 border border-dark">
+          <p class="fs-5 fw-bold text-capitalize text-center m-0">
+            Status
+            <a href="" >
+            <img src="{% static 'icons/sort-alpha-down.svg'%}" alt="View" >
+          </a>
+        </p>
+        </div>
+        <div class="col-md-3 border border-dark">
+          <p class="fs-5 fw-bold text-capitalize text-center m-0">
+            <img src="{% static 'icons/sort-alpha-down.svg'%}" alt="View" >
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+   {% for ref in refdoctors %}
+   <div class="row table-hover">
+    <div class="col-md-3 col-sm-3 border ">
+      <p class="fs-6 m-0">
+        {{ref.refname}}
+      </p>
+    </div>
+    <div class="col-md-1 col-sm-1 border ">
+      <p class="fs-6 m-0">
+        {{ref.refmobile}}
+      </p>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <div class="row">
+        <div class="col-md-3 border ">
+          <p class="fs-6 m-0">
+            {{ref.refemail}}
+          </p>
+        </div>
+        <div class="col-md-6 border ">
+          <p class="fs-6 m-0">
+            {{ref.refadress}}
+          </p>
+        </div>
+        <div class="col-md-3 border ">
+          <p class="fs-6 m-0">
+            {{ref.pricelist}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-3">
+      <div class="row">
+        <div class="col-md-4 border">
+          <p class="fs-6  m-0">
+            {{ref.refregister}}
+          </p>
+        </div>
+        <div class="col-md-5 border ">
+          <p class="fs-6  m-0">
+            @@Status
+          </p>
+        </div>
+        <div class="col-md-3 border ">
+          <p class="fs-6 m-0">
+            <a href="" title="View">
+              <img src="{% static 'icons/card-heading.svg'%}" alt="View" >
+            </a>
+            <a href="" title="Update">
+              <img src="{% static 'icons/pencil-square.svg' %}" alt="Update" ...>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+   {% endfor %}
+
+</div>
+
+    
+    
+
+
+{% endblock%}

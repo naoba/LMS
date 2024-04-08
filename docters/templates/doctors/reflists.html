@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% load static %}
+<!-- for loop: for new_name in incoming_parameter -->
+{% block content %}
+
+
+<div class="flex m-1">
+  <p>
+    <a class="btn btn-primary" href="{% url 'refcreate'%}"> Create </a>
+  </p>
+
+   <div class="row">
+      <div class="table-responsive">
+         <table class="table border">
+            <thead class="table-dark">
+               <tr>
+                 <th class="width-20" scope="col">Name</th>
+                 <th class="width-10" scope="col">Mobile</th>
+                 <th class="width-10" scope="col">Email</th>
+                 <th class="width-15" scope="col">Adress</th>
+                 <th class="width-15" scope="col">Price List</th>
+                 <th class="width-10" scope="col">Regist No</th>
+                 <th class="width-10" scope="col">Status</th>
+                 <th class="width-10" scope="col">Action</th>
+               </tr>
+            </thead>
+
+            {% for ref in refdoctors %}  
+            <tbody>
+               <tr >
+                 <td>{{ref.refname}}</td>
+                 <td>{{ref.refmobile}}</td>
+                 <td>{{ref.refemail}}</td>
+                 <td>{{ref.refadress}}</td>
+                 <td>{{ref.pricelist}}</td>
+                 <td>{{ref.refregister}}</td>
+                 <td>@status</td>
+                 <td>
+                   <a href="" title="View">
+                     <img src="{% static 'icons/card-heading.svg'%}" alt="View" >
+                   </a>
+                   <a href="" title="Update">
+                     <img src="{% static 'icons/pencil-square.svg' %}" alt="Update" ...>
+                   </a>
+                 </td>
+               </tr>
+            </tbody>
+            {% endfor %}
+
+         </table>
+       </div>
+   </div>
+</div>
+    
+    
+
+
+{% endblock%}
