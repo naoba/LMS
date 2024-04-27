@@ -60,5 +60,20 @@ class Customer(models.Model):
     
         return age.days
     
+class JEmodel(models.Model):
+    
+    JEupload= models.FileField(blank=True,upload_to="static/uploads/JE", null = True)
+
+    def FullPath(self):
+        import os
+        from pathlib import Path
+        BASE_DIR = Path(__file__).resolve().parent.parent
+
+        full_path = os.path.join(BASE_DIR, str(self.JEupload))
+
+        return full_path
+
+
+    
     
 

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<h1> Json to Excel</h1>
+<hr>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="custom-file">
+          <label >{% render_field form.JEupload.label%}</label>
+          {% render_field form.JEupload class="form-control" placeholder="doc upload" type="file" %}
+        </span>
+        </div>
+        
+      </div>
+      <hr>
+      <button type="submit"> Upload</button>
+      <hr>
+</form>
+<br>
+<h2> File name: {{ excel_file }}</h2>
+
+
+{% endblock content %}
+

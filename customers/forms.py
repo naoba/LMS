@@ -1,7 +1,7 @@
 # myapp/forms.py
 from django.forms import ModelForm, Textarea, CharField, ImageField, FileInput, IntegerField, DateField
 from django.utils.translation import gettext_lazy as _
-from .models import Customer
+from .models import Customer, JEmodel
 from django import forms
 from django.utils import timezone
 
@@ -34,6 +34,14 @@ class CustomerForm(ModelForm):
             "doc_upload": _("Doc Upload"),
 
         }
+
+
+class JEForm(ModelForm):
+    class Meta:
+        model= JEmodel
+        fields = "__all__"
+        
+    
         
 
    

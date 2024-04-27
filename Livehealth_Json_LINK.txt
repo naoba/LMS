@@ -1,0 +1,11 @@
+TEST WISE
+
+opd: https://livehealth.solutions/v4/bill_test_wise_mis/?from=2024-04-24T18:30:00.000Z&to=2024-04-25T18:29:59.000Z&reportType=1&isCustomReportTemplate=0&emailBillingReport=0&return_excel=0&selectedLabId=1980&bill_wise=0&org=null&referral=null&outsource=null&type=null&marketing_person=null&labId=1980&billed_by=null&collected_by=null&department=9058&test=null&allLabFlag=0&labs=%5B1980%5D&is_synced=-1&collections_raw_query=1
+
+
+all Dept: https://livehealth.solutions/v4/bill_test_wise_mis/?from=2024-04-24T18:30:00.000Z&to=2024-04-25T18:29:59.000Z&reportType=1&isCustomReportTemplate=0&emailBillingReport=0&return_excel=0&selectedLabId=1980&bill_wise=0&org=null&referral=null&outsource=null&type=null&marketing_person=null&labId=1980&billed_by=null&collected_by=null&department=null&test=null&allLabFlag=0&labs=%5B1980%5D&is_synced=-1&collections_raw_query=1
+
+test list:  https://livehealth.solutions/getAdminTestList/
+
+
+

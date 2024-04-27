@@ -45,3 +45,12 @@ function DOBtoAge(){
     // console.log(age)
 
 }
+
+// function FilePath(){
+//     var path = document.getElementById("json_to_excel").files[0];
+//     alert(path);
+
+// }
+$('input[type=file]').change(function () {
+    console.log(this.files[0].mozFullPath);
+});

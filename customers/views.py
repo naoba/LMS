@@ -2,7 +2,11 @@ from django.shortcuts import render,get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Customer
 from django.core.paginator import Paginator
-from .forms import CustomerForm
+from .forms import CustomerForm, JEForm
+from openpyxl import load_workbook, Workbook
+import pandas as pd
+
+
 
 # Create your views here.
 
@@ -50,4 +54,41 @@ def CustomerEdit(request, pk):
         form = CustomerForm(instance=customer)
 
     return render(request, 'customers/customercreate.html', {'form': form,'title':pk})
+
+def JsontoExcel(request):
+    if request.method == "POST":
+        form = JEForm(request.POST,request.FILES)
+        if form.is_valid():
+            JE = form.save(commit=False)
+            JE.save()
+            # print(JE.FullPath())
+            import json
+            with open(JE.FullPath()) as f:
+                alldata = json.load(f)
+                data= alldata["data"]
+                wb = Workbook()
+                sheet = wb.active
+                ref=[]
+                for i in range(len(data)):
+                    n=str(i+2)
+                    sheet["A"+n]= data[i]["referral_name"]
+                    sheet["B"+n]= data[i]["dept_name"] 
+                    ref.append(data[i]["referral_name"])
+
+                unique_list = pd.Series(ref).drop_duplicates().tolist()
+                summary = wb.create_sheet("Summary", 1)
+                for i in range(len(unique_list)):
+                     n=str(i+2)
+                     summary["A"+n] = unique_list[i]
+                     summary["B"+n] = ref.count(unique_list[i])
+
+                wb.save(filename="hello_world.xlsx")              
+                
+       
+            return render(request, 'customers/jsontoexcel.html', {"excel_file": JE.JEupload,"form": form })
+
+
+    else:
+        form = JEForm()
+        return render(request, 'customers/jsontoexcel.html', {"form": form})
 
