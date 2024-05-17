@@ -8,12 +8,10 @@ from departments.models import Department, Subdepartment
 
 def DepartmentLists(request):
 
-    dept = Department.objects.all()
-    context = {'customers':dept}  
-    return render(request, 'customers/customerlist.html', context)
+    depts = Department.objects.all()
+    subdepts = Subdepartment.objects.all()
+    
+    context = {'depts':depts, 'subdepts': subdepts }  
+    return render(request, 'departments/departmentlist.html', context)
 
-def SubdepartmentLists(request):
 
-    dept = Subdepartment.objects.all()
-    context = {'customers':dept}  
-    return render(request, 'customers/customerlist.html', context)

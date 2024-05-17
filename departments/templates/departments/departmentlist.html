@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% load static %}
+<!-- for loop: for new_name in incoming_parameter -->
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-5" style="border: 2px black;">
+      
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col-2">Department</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+             {% for dept in depts %}
+              <tr class="font-small">
+                  <td>{{dept.id}}</td>
+                  <td>{{dept}}</td>
+                  <td>{{dept.status|default_if_none:" "}}
+                       </td>
+                  <td>
+                   
+                  </td> 
+              </tr>
+             {% endfor %}
+            </tbody>
+          </table>
+        
+    </div>
+    <div class="col-md-7">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col-2">Sub Department</th>
+                <th scope="col">Department</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+                  
+              </tr>
+            </thead>
+            <tbody>
+             {% for sub in subdepts %}
+              <tr class="font-small">
+                  <td>{{sub.id}}</td>
+                  <td>{{sub}}</td>
+                  <td>{{sub.department}}</td>
+                  <td>{{sub.status}}</td>
+                  <td>
+                   
+                  </td> 
+              </tr>
+             {% endfor %}
+            </tbody>
+          </table>
+
+
+    </div>
+</div>
+
+{% endblock %}

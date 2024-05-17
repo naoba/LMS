@@ -6,7 +6,7 @@ from general.models import GStatus
 class Department(models.Model):
 
     name = models.CharField(max_length=100)
-    status =models.ForeignKey(GStatus,on_delete=models.SET_NULL,blank=True,null=True,)
+    status =models.ForeignKey(GStatus,on_delete=models.SET_NULL,null=True,)
     createat = models.DateTimeField(blank=True, auto_now_add=True)
     # createby = models.ForeignKey(blank=True)
     uodateat = models.DateTimeField(blank=True, auto_now=True)
@@ -18,8 +18,8 @@ class Department(models.Model):
 class Subdepartment(models.Model):
 
     name = models.CharField(max_length=100)
-    department =models.ForeignKey(Department,on_delete=models.SET_NULL,blank=True,null=True,)
-    status =models.ForeignKey(GStatus,on_delete=models.SET_NULL,blank=True,null=True,)
+    department =models.ForeignKey(Department,on_delete=models.SET_NULL,null=True,)
+    status =models.ForeignKey(GStatus,on_delete=models.SET_NULL,null=True,)
     createat = models.DateTimeField(blank=True, auto_now_add=True)
     # createby = models.ForeignKey(blank=True)
     uodateat = models.DateTimeField(blank=True, auto_now=True)
